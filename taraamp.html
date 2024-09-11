@@ -1,0 +1,58 @@
+<!doctype html>
+<html ⚡>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>AMP Landing Page</title>
+  <link rel="canonical" href="https://example.com/landing-page">
+  <meta name="description" content="AMP Landing Page with Register and Login">
+  <link rel="stylesheet" href="/CSS.css">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Welcome to AMP Landing Page</h1>
+
+    <!-- Register Button -->
+    <button on="tap:registerForm.show, loginForm.hide" class="button">Register</button>
+
+    <!-- Login Button -->
+    <button on="tap:loginForm.show, registerForm.hide" class="button">Login</button>
+
+    <!-- Register Form -->
+    <amp-bind-macro id="registerForm" bind-text="'show'" expression="registerForm">
+      <div id="registerForm" class="form hidden">
+        <h2>Register</h2>
+        <form method="post" action-xhr="/register" target="_top">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+          
+          <button class="button" type="submit">Submit</button>
+        </form>
+      </div>
+    </amp-bind-macro>
+
+    <!-- Login Form -->
+    <amp-bind-macro id="loginForm" bind-text="'show'" expression="loginForm">
+      <div id="loginForm" class="form hidden">
+        <h2>Login</h2>
+        <form method="post" action-xhr="/login" target="_top">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="email" required>
+          
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" required>
+          
+          <button class="button" type="submit">Submit</button>
+        </form>
+      </div>
+    </amp-bind-macro>
+
+  </div>
+
+</body>
+</html>
